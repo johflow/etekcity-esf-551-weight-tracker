@@ -1,0 +1,12 @@
+# Environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database files
+*.db
+
+# Data files
+*.csv

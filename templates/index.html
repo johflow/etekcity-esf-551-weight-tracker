@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+	<body>
+		<canvas id="myWeightChart"></canvas>
+		
+		<script>
+			fetch('/api/data')
+				.then(response => response.json())
+				.then(data => {
+					const context = document.getElementById('myWeightChart');
+					new Chart(context, {
+						type: 'line',
+
+						data: {
+							labels: data.labels,
+							datasets: [{
+								label: 'Weight Readings',
+								data: data.values,
+								borderColor: 'rgb(75, 192, 192)',
+								tension: 0.1
+							}]
+						},
+						options: {
+							scales: {
+								y: {
+									beginAtZero: true
+								}
+							}
+						}
+					});
+				});
+		</script>
+	</body>
+</html>
+
