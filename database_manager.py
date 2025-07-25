@@ -59,4 +59,4 @@ class DatabaseManager:
                 datetime_obj = datetime.strptime(date_string, "%m/%d/%Y")
                 new_date_str = datetime_obj.strftime("%Y-%m-%d")
                 weight_number = row[1].split('l')
-                self.add_reading(weight_number[0], new_date_str)
+                self.add_reading(float(weight_number[0]), new_date_str)
